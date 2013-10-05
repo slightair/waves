@@ -25,6 +25,8 @@
 		5753856017FC74E90024C1DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5753853817FC74E90024C1DC /* UIKit.framework */; };
 		5753856817FC74E90024C1DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5753856617FC74E90024C1DC /* InfoPlist.strings */; };
 		5753856A17FC74E90024C1DC /* wavesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5753856917FC74E90024C1DC /* wavesTests.m */; };
+		576251B017FC76960008A8B0 /* WVWaveScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 576251AF17FC76960008A8B0 /* WVWaveScene.m */; };
+		576251B317FFF8800008A8B0 /* WVWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 576251B217FFF8800008A8B0 /* WVWave.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,10 @@
 		5753856517FC74E90024C1DC /* wavesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "wavesTests-Info.plist"; sourceTree = "<group>"; };
 		5753856717FC74E90024C1DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5753856917FC74E90024C1DC /* wavesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wavesTests.m; sourceTree = "<group>"; };
+		576251AE17FC76960008A8B0 /* WVWaveScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVWaveScene.h; sourceTree = "<group>"; };
+		576251AF17FC76960008A8B0 /* WVWaveScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVWaveScene.m; sourceTree = "<group>"; };
+		576251B117FFF8800008A8B0 /* WVWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WVWave.h; sourceTree = "<group>"; };
+		576251B217FFF8800008A8B0 /* WVWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WVWave.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,9 +137,13 @@
 				5753854F17FC74E90024C1DC /* WVViewController.m */,
 				5753855117FC74E90024C1DC /* WVMyScene.h */,
 				5753855217FC74E90024C1DC /* WVMyScene.m */,
+				576251AE17FC76960008A8B0 /* WVWaveScene.h */,
+				576251AF17FC76960008A8B0 /* WVWaveScene.m */,
 				5753855417FC74E90024C1DC /* Spaceship.png */,
 				5753855617FC74E90024C1DC /* Images.xcassets */,
 				5753853D17FC74E90024C1DC /* Supporting Files */,
+				576251B117FFF8800008A8B0 /* WVWave.h */,
+				576251B217FFF8800008A8B0 /* WVWave.m */,
 			);
 			path = waves;
 			sourceTree = "<group>";
@@ -268,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5753854317FC74E90024C1DC /* main.m in Sources */,
+				576251B317FFF8800008A8B0 /* WVWave.m in Sources */,
 				5753854717FC74E90024C1DC /* WVAppDelegate.m in Sources */,
+				576251B017FC76960008A8B0 /* WVWaveScene.m in Sources */,
 				5753855017FC74E90024C1DC /* WVViewController.m in Sources */,
 				5753855317FC74E90024C1DC /* WVMyScene.m in Sources */,
 			);
@@ -491,6 +503,7 @@
 				5753856F17FC74E90024C1DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5753857017FC74E90024C1DC /* Build configuration list for PBXNativeTarget "wavesTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +512,7 @@
 				5753857217FC74E90024C1DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

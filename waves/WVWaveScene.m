@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) WVWave *wave;
 @property (nonatomic, strong) SKShapeNode *waveNode;
+@property (nonatomic, assign) CGPoint prevTouchLocation;
 
 @end
 
@@ -26,6 +27,7 @@
 
         self.wave = [WVWave new];
         self.wave.scale = self.frame.size.height / 2 * 0.8;
+        self.wave.frequency = 0.1;
         [self.wave start];
 
         self.waveNode = [SKShapeNode new];
@@ -48,14 +50,26 @@
     }
 }
 
-- (void)didSimulatePhysics
+- (void)update:(NSTimeInterval)currentTime
 {
-    [super didSimulatePhysics];
-
     CGMutablePathRef path = CGPathCreateMutable();
     [self configurePath:path withWave:self.wave];
     self.waveNode.path = path;
     CGPathRelease(path);
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.prevTouchLocation = [[touches anyObject] locationInNode:self];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    CGPoint location = [[touches anyObject] locationInNode:self];
+    CGFloat distanceX = location.x - self.prevTouchLocation.x;
+    self.prevTouchLocation = location;
+
+    self.wave.frequency += distanceX / 120;
 }
 
 @end

@@ -10,13 +10,12 @@
 
 NSUInteger const WVWaveNumberOfWaveSplit = 128;
 NSTimeInterval const WVWaveTickInterval = (1.0 / WVWaveNumberOfWaveSplit);
-CGFloat const WVWaveFrequencyMax = 2.0;
+CGFloat const WVWaveFrequencyMax = 8.0;
 CGFloat const WVWaveFrequencyMin = 0.2;
 
 @interface WVWave ()
 
 @property (nonatomic, assign) CGFloat *values;
-@property (nonatomic, assign) NSUInteger counter;
 @property (nonatomic, strong) NSTimer *timer;
 
 - (void)tick;
@@ -30,7 +29,7 @@ CGFloat const WVWaveFrequencyMin = 0.2;
     self = [super init];
     if (self) {
         self.values = calloc(WVWaveNumberOfWaveSplit, sizeof(CGFloat));
-        self.counter = 0;
+        self.radian = 0.0;
         self.frequency = 1.0;
     }
     return self;
@@ -64,14 +63,14 @@ CGFloat const WVWaveFrequencyMin = 0.2;
 
 - (void)tick
 {
-    NSLog(@"freq: %f", self.frequency);
-    CGFloat value = sin(self.frequency * 2 * M_PI / WVWaveNumberOfWaveSplit * self.counter) * self.scale;
+    CGFloat value = sin(self.radian) * self.scale;
 
     for (int i=0; i < WVWaveNumberOfWaveSplit - 1; i++) {
         self.values[i] = self.values[i + 1];
     }
     self.values[WVWaveNumberOfWaveSplit - 1] = value;
-    self.counter++;
+
+    self.radian = fmod(self.radian + self.frequency * 2 * M_PI / WVWaveNumberOfWaveSplit, 2 * M_PI);
 }
 
 - (void)setFrequency:(CGFloat)frequency

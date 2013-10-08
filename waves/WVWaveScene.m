@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) WVWave *wave;
 @property (nonatomic, strong) SKShapeNode *waveNode;
+@property (nonatomic, strong) SKLabelNode *statusLabel;
 @property (nonatomic, assign) CGPoint prevTouchLocation;
 
 @end
@@ -34,6 +35,12 @@
         self.waveNode.lineWidth = 0.5;
 
         [self addChild:self.waveNode];
+
+        self.statusLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        self.statusLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        self.statusLabel.fontSize = 16;
+        self.statusLabel.position = CGPointMake(20, 20);
+        [self addChild:self.statusLabel];
     }
     return self;
 }
@@ -56,6 +63,8 @@
     [self configurePath:path withWave:self.wave];
     self.waveNode.path = path;
     CGPathRelease(path);
+
+    self.statusLabel.text = [NSString stringWithFormat:@"freq: %.3f, rad: %.3f", self.wave.frequency, self.wave.radian];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -69,7 +78,7 @@
     CGFloat distanceX = location.x - self.prevTouchLocation.x;
     self.prevTouchLocation = location;
 
-    self.wave.frequency += distanceX / 120;
+    self.wave.frequency += distanceX / 60;
 }
 
 @end

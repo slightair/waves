@@ -18,5 +18,6 @@ extern NSUInteger const WVWaveNumberOfWaveSplit;
 
 @property (nonatomic, assign) CGFloat scale;
 @property (nonatomic, assign) CGFloat frequency;
+@property (nonatomic, assign) CGFloat radian;
 
 @end
